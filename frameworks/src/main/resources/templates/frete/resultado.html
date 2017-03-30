@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="default/layout">
+<head lang="ptBR">
+
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<h3 class="sub-header">Valor do Frete</h3>
+
+		<div class="row">
+			<!-- 1 -->
+
+			<div class="col-md-6 col-lg-6 col-xs-12">
+				<form class="form-horizontal" th:object="${frete}">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Geocódigo A</label>
+						<div class="col-sm-9">
+							<p class="form-control-static" th:text="${frete.geocodigoA}"></p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Geocódigo B</label>
+						<div class="col-sm-9">
+							<p class="form-control-static" th:text="${frete.geocodigoB}"></p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Distância Aproximada (KM)</label>
+						<div class="col-sm-9">
+							<p class="form-control-static"
+								th:text="${frete.distanciaAproximada}"></p>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Valor do Frete R$</label>
+						<div class="col-sm-9">
+							<p class="form-control-static"
+								th:text="${#numbers.formatDecimal(frete.valor, 0, 'COMMA', 2, 'POINT')}"></p>
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+
+		</div>
+		<!-- 1 -->
+
+	</div>
+</body>
+</html>

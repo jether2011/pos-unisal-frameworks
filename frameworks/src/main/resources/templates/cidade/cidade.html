@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="default/layout">
+<head lang="ptBR">
+
+</head>
+<body>
+	<div layout:fragment="content">
+
+		<h1 class="page-header">Cidades</h1>
+
+		<div class="row">
+			<!-- 1 -->
+
+			<div class="col-md-6 col-lg-6 col-xs-12">
+				<form class="form-horizontal" action="#"
+					th:action="@{/cidades/save}" th:object="${cidade}" method="POST">
+
+					<div class="form-group">
+						<label for="nome">ID</label> <input type="hidden"
+							class="form-control" th:field="*{id}"
+							placeholder="Nome da Cidade"></input>
+					</div>
+
+					<div class="form-group">
+						<label for="nome">Nome</label> <input type="text"
+							class="form-control" th:field="*{nome}"
+							placeholder="Nome da Cidade"></input>
+					</div>
+
+					<div class="form-group">
+						<label for="geocodigo">Geocódigo</label> <input type="text"
+							class="form-control" th:field="*{geocodigo}"
+							placeholder="Geocódigo"></input>
+					</div>
+
+					<div class="form-group">
+						<label for="latitude">Latitude</label> <input type="text"
+							class="form-control" th:field="*{latitude}"
+							placeholder="Latitude"></input>
+					</div>
+
+					<div class="form-group">
+						<label for="longitude">Longitude</label> <input type="text"
+							class="form-control" th:field="*{longitude}"
+							placeholder="Longitude"></input>
+					</div>
+
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
+				</form>
+			</div>
+
+
+		</div>
+		<!-- 1 -->
+		<div class="row">
+			<!-- 2 -->
+			<h3 class="sub-header">Lista de Cidades</h3>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Cidade</th>
+							<th>Geocódigo</th>
+							<th>Longitude</th>
+							<th>Latitude</th>
+							<th>#</th>
+						</tr>
+					</thead>
+					<tbody>
+
+						<tr th:each="cidade : ${cidades}">
+							<td th:text="${cidade.id}"></td>
+							<td th:text="${cidade.nome}"></td>
+							<td th:text="${cidade.geocodigo}"></td>
+							<td th:text="${cidade.latitude}"></td>
+							<td th:text="${cidade.longitude}"></td>
+							<td><a class="button"
+								th:href="@{/cidades/edit(id=${cidade.id})}" th:text="Editar"></a>
+								<a class="button" th:href="@{/cidades/delete(id=${cidade.id})}"
+								th:text="Deletar"></a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<!-- 2 -->
+	</div>
+</body>
+</html>

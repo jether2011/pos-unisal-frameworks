@@ -1,6 +1,7 @@
 package br.com.unisal.frameworks.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -8,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.thymeleaf.extras.springsecurity4.dialect.SpringSecurityDialect;
 
 /**
  * An extremely basic auth setup for the sake of a demo project
@@ -21,6 +23,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth
             .inMemoryAuthentication()
                 .withUser("admin").password("admin").roles("USER");
+    }
+    
+    @Bean
+    public SpringSecurityDialect springSecurityDialect(){
+        return new SpringSecurityDialect();
     }
 	 
 	@Override
@@ -44,7 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/css/**","/js/**", "/images/**", "/api/**","/webjars/**","/fonts/**", "/favicon.ico")
             .permitAll().anyRequest().anonymous()
             .antMatchers("/*","/index").permitAll()
-                .anyRequest().authenticated()
-                .and();
+                .anyRequest().authenticated();
     }
 }

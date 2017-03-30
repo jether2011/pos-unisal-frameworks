@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @ComponentScan
 @EnableJpaRepositories
-@EntityScan(basePackages={"br.com.unisal.domain.*"}) 
+@EntityScan(basePackages={"br.com.unisal.frameworks.domain.*"}) 
 @ImportResource("classpath*:/spring/spring-beans-config.xml")
 public class Application {
 

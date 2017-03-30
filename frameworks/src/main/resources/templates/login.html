@@ -6,32 +6,27 @@
 </head>
 <body>
 
-	<div layout:fragment="content">
-		<div class="container">
-
-			<div class='row'>
-				<div class='col-xs-12 col-md-6 col-lg-8'>Texto descrição
-					projeto!</div>
-				<div class='col-xs-12 col-md-4 col-lg-4'>
-					<form class="form-signin" action="/login" method="POST">
-						<h2 class="form-signin-heading">Login</h2>
-						<label for="username" class="sr-only">User</label> <input
-							type="text" id="username" name="username" class="form-control"
-							placeholder="usuário" required='true' autofocus='true'></input> <label
-							for="password" class="sr-only">Senha</label> <input
-							type="password" id="password" name="password"
-							class="form-control" placeholder="Password" required="true"></input>
-
-						<div class="checkbox">
-							<!-- <label> <input type="checkbox" value="remember-me">
-							Lembrar me
-						</label>  -->
-						</div>
-						<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-					</form>
-				</div>
+	<div class="container" layout:fragment="content">
+		<div class='row'>
+			<div class='col-xs-12 col-md-4 col-lg-4'>
+				
 			</div>
 
+			<div class='col-xs-12 col-md-4 col-lg-4'>
+				<form class="form-signin" action="/login" method="POST">
+
+					<h2 class="form-signin-heading">Login</h2>
+
+					<label for="username" class="sr-only">User</label> <input
+						type="text" id="username" name="username" class="form-control"
+						placeholder="Usuário" required='true' autofocus='true'></input> <label
+						for="password" class="sr-only">Senha</label> <input
+						type="password" id="password" name="password" class="form-control"
+						placeholder="Senha" required="true"></input>
+					<br/>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+				</form>
+			</div>
 		</div>
 	</div>
 </body>
